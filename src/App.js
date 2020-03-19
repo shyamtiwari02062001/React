@@ -1,5 +1,8 @@
 import React from 'react';
 class App extends React.Component{
+     refreshPage() {
+        window.location.reload(false);
+      }
 
   constructor(props){
       super(props);
@@ -80,17 +83,9 @@ class App extends React.Component{
           width:150,
           backgroundColor:this.state.color,
       }
-      var cardse ={
-          boxShadow:5,
-          borderRadius:5
-      }
-      var containered={
-          padding:5,
-      }
+      
       return(
-         
-          <div style={cardse} class="card">
-              <div style={containered} class="container">
+          <div>
               <form className="form-inline" onSubmit={this.checkGuess}>
                       <label className="m-2">Enter a guess:</label>
                       <input name="guessNumber" type="number" min="1" max="100" ref={(input) => {this.guessNumber = input;}} className="form-control m-2"/>
@@ -98,12 +93,11 @@ class App extends React.Component{
               </form>
               <div>
                   <p className="m-2">{this.state.guesses}</p>
-                  <p className="m-2">{this.state.lowOrHi}</p>
                   <h1 style={mystyle}>{this.state.lastResult}</h1>
+                  <button onClick={() => window.location.reload(false)}>New Game</button>
                  </div>
               </div>              
-              
-          </div>
+          
       );
   }
 }
