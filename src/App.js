@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends React.Component{
      refreshPage() {
         window.location.reload(false);
@@ -83,18 +84,49 @@ class App extends React.Component{
           width:150,
           backgroundColor:this.state.color,
       }
+      var bac={
+          marginTop:100,
+          marginRight:500,
+          marginLeft:500,
+          backgroundColor:"#87ceeb ",
+          color:"	#FFFFFF",
+      }
+      var back={
+        marginTop:100,
+        marginRight:500,
+        marginLeft:500,
+        color:"	#000000",
+    }
+    var mar={
+        marginLeft:600,
+    }
       
       return(
           <div>
-              <form className="form-inline" onSubmit={this.checkGuess}>
+                <div style={bac} class="card">
+                <div  class="card-body">
+                    
+                <form className="form" onSubmit={this.checkGuess}>
                       <label className="m-2">Enter a guess:</label>
                       <input name="guessNumber" type="number" min="1" max="100" ref={(input) => {this.guessNumber = input;}} className="form-control m-2"/>
-                      <button type="submit" ref={(button) => {this.submitGuess = button;}} className="btn btn-primary m-2">Submit guess</button>
+                      <button type="submit" ref={(button) => {this.submitGuess = button;}} className="btn btn-primary m-2" style={mar}>Submit guess</button >
+                      <button onClick={() => window.location.reload(false)} className="btn btn-primary m-2">New Game</button>
               </form>
+                </div>
+                </div>
+              
+
+               
+             
               <div>
-                  <p className="m-2">{this.state.guesses}</p>
+              <div style={back} class="card">
+                <div  class="card-body">
+                    
+                  <h4 className="m-2">{this.state.guesses}</h4>
                   <h1 style={mystyle}>{this.state.lastResult}</h1>
-                  <button onClick={() => window.location.reload(false)}>New Game</button>
+                  </div>
+                </div>
+                  
                  </div>
               </div>              
           
