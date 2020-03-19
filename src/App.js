@@ -47,7 +47,7 @@ class App extends React.Component{
           }  
           else if (randomValue<guessValue) {
               this.setState({
-                  lastResult: "cold",
+                  lastResult: "Cold",
                   color:"	#0000ff"
               });
           }
@@ -59,7 +59,7 @@ class App extends React.Component{
             });
         }
        
-        else if ((randomValue-guessValue)>5 && (randomValue-guessValue)<16 ) {
+        else if ((randomValue-guessValue)>4 && (randomValue-guessValue)<16 ) {
             this.setState({
                 lastResult: "Warm",
                 color:"	#FFFF00"
